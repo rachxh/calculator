@@ -77,42 +77,48 @@
     </button>
 </body>
 <script>
+    //  Global Scope
     var choosenOperator;
     var a;
-    var b;
-    var c;
+
+    function getDisplayeElement() {
+        //  Local Scope - of this function
+        return document.getElementById("display")
+    }
 
     function writer(myVar) {
-        document.getElementById("display").value += myVar;
-        console.log(myVar);
+        //  Local Scope - of this function
+        getDisplayeElement().value += myVar;
     }
 
     function setOperator(operator) {
+        //  Local Scope - of this function
         choosenOperator = operator;
-    a = document.getElementById("display").value
+        a = getDisplayeElement().value
         a = Number(a)
-    document.getElementById("display").value = null;
-    
-    
+        getDisplayeElement().value = null;
+
         console.log(choosenOperator, a);
     }
 
     function calculate () {
-    b = document.getElementById("display").value;
+        //  Local Scope - of this function
+        var b;
+        var c;
+
+        b = getDisplayeElement().value;
         b = Number(b)
         console.log("calculate", a, choosenOperator, b)
     
-    if (choosenOperator == "+")
-        c = a + b;
-    else if (choosenOperator == "-")
-        c = a - b;
-    else if (choosenOperator == "*")
-        c = a * b;
-        
-    
+        if (choosenOperator == "+")
+            c = a + b;
+        else if (choosenOperator == "-")
+            c = a - b;
+        else if (choosenOperator == "*")
+            c = a * b;
+
         console.log("Result: ", c)
-    document.getElementById("display").value = c;
-    
+        getDisplayeElement().value = c;
     }
 </script>
 </html>
