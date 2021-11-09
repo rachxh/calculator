@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        button#equal {
+            background-color: #000088;
+            color: white;
+            border: 2px dotted red;
+        }
+    </style>
+</head>
+<body>
+    <input 
+    type="number"
+    readonly
+    id="display" />
+    <br>
+    <button
+    onclick="writer(1)">
+    1
+    </button>
+    <button
+    onclick="writer(2)">
+    2
+    </button>
+    <button
+    onclick="writer(3)">
+    3
+    </button>
+    <br>
+    <button
+    onclick="writer(4)">
+    4
+    </button>
+    <button
+    onclick="writer(5)">
+    5
+    </button>
+    <button
+    onclick="writer(6)">
+    6
+    </button>
+    <br>
+    <button
+    onclick="writer(7)">
+    7
+    </button>
+    <button
+    onclick="writer(8)">
+    8
+    </button>
+    <button
+    onclick="writer(9)">
+    9
+    </button>
+    <br>
+    <button
+    onclick="setOperator('+')">
+    +
+    </button>
+    <button
+    onclick="setOperator('-')">
+    -
+    </button>
+    <button
+    onclick="setOperator('*')">
+    *
+    </button>
+    <button
+    id="equal"
+    onclick="calculate()">
+    =
+    </button>
+</body>
+<script>
+    var choosenOperator;
+    var a;
+    var b;
+    var c;
+
+    function writer(myVar) {
+        document.getElementById("display").value += myVar;
+        console.log(myVar);
+    }
+
+    function setOperator(operator) {
+        choosenOperator = operator;
+    a = document.getElementById("display").value
+        a = Number(a)
+    document.getElementById("display").value = null;
+    
+    
+        console.log(choosenOperator, a);
+    }
+
+    function calculate () {
+    b = document.getElementById("display").value;
+        b = Number(b)
+        console.log("calculate", a, choosenOperator, b)
+    
+    if (choosenOperator == "+")
+        c = a + b;
+    else if (choosenOperator == "-")
+        c = a - b;
+    else if (choosenOperator == "*")
+        c = a * b;
+        
+    
+        console.log("Result: ", c)
+    document.getElementById("display").value = c;
+    
+    }
+</script>
+</html>
