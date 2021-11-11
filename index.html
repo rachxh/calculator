@@ -71,10 +71,19 @@
     *
     </button>
     <button
+    onclick="setOperator('/')">
+    /
+    </button>
+    <button
+    onclick="clearFunction()">
+    C
+    </button>
+    <button
     id="equal"
     onclick="calculate()">
     =
     </button>
+    <p id="logEl">Last Calculation: </p>
 </body>
 <script>
     //  Global Scope
@@ -116,9 +125,20 @@
             c = a - b;
         else if (choosenOperator == "*")
             c = a * b;
+        else if (choosenOperator == "/")
+            c = a / b;
 
         console.log("Result: ", c)
         getDisplayeElement().value = c;
+
+        document.getElementById("logEl").innerText += "\n" + c
+    }
+    
+    function clearFunction() {
+        console.log("clear")
+        a = null
+        choosenOperator = null 
+        getDisplayeElement().value = null
     }
 </script>
 </html>
